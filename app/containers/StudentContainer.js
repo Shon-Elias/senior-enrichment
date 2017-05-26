@@ -11,12 +11,12 @@ const mapStateToProps = (state, ownProps)=>{
   console.log("Student container ownProps", ownProps);
 
   return {
-    selectedStudent: state.students.selected
+    selectedStudent: state.students.selectedStudentReducer
   }
 
 }
 
 
-const mapDispatchToProps = (dispatch, ownProps) => {}
+// const mapDispatchToProps = (dispatch, ownProps) => {}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Student);
+export default connect(mapStateToProps)(Student);

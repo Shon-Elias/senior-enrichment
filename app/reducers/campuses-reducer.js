@@ -1,6 +1,8 @@
 import {
   RECEIVE_CAMPUSES,
-  RECEIVE_CAMPUS
+  RECEIVE_CAMPUS,
+  DELETE_CAMPUS,
+  NEW_CAMPUS
 } from '../constants';
 
 // import {convertCampuses, convertCampus} from '../utils';
@@ -26,7 +28,17 @@ export default function (state = initialCampusesState, action) {
     case RECEIVE_CAMPUS:
       // newState.selectedCampusReducer = convertCampus(action.campus);
       newState.selectedCampusReducer = action.campus;
+      break;
 
+    case NEW_CAMPUS:
+      newState.listCampusReducer = [action, ...newState.listCampusReducer];
+      break;
+
+    case DELETE_CAMPUS:
+
+      newState.listCampusReducer = newState.listCampusReducer.filter(campus => {
+        return campus.id !== action.id;
+      });
       break;
 
     default:

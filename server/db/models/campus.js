@@ -5,12 +5,12 @@ const Student = require('./student');
 
  const Campus = db.define('campus', {
   name: {
-    type: Sequelize.STRING,
-    allowNull: false,
+    type: Sequelize.STRING
+    // allowNull: false,
 
-    validate: {
-      notEmpty: true
-    }
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   img: {
     type: Sequelize.STRING,
@@ -24,15 +24,13 @@ const Student = require('./student');
 //  },
 //  {
 //     hooks: {
-// 		// beforeCreate: function(campus){
-// 		// 	campus.img = './images/'+ campus.name.toLowerCase() + '.jpg'
-// 		// }
-// 		// ,
+
 // 		// beforeDestroy: function(campus) {
-// 		// 	Student.findAll(campus.id)
+// 		// 	Student.findAll({where: { campusId: campus.Id }})
 // 		// 	.then (students => students.destroy({returning: true}))
-// 		// 	.then (removeUsersFromDb => console.log('deleted', removeUsersFromDb))
+// 		// 	.then (() => console.log('Users removed from Database'))
 // 		// 	.catch(err => console.error(err));
+
 // 		// }
 
 // 	}

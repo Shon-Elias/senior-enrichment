@@ -1,12 +1,40 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import { Link } from 'react-router';
+import { deleteCampusById, updatelist } from '../action-creators/campuses';
+import { render } from 'react-dom';
 
-export default function Campuses (props) {
 
-  console.log("Hi PATRICK Campuses componant props", props);
 
-  const campuses = props.campuses;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteCampusById (campusId) {
+      dispatch(updatelist(campusId));
+    }
+  };
+};
 
+// export default function Campuses (props) {
+export default class Campuses extends Component {
+  constructor(props) {
+		super(props);
+
+		this.handleDelete = this.handleDelete.bind(this);
+
+
+	}
+
+  handleDelete(e, id) {
+
+    e.preventDefault();
+
+    this.props.deleteCampusById(id);
+
+
+	}
+
+render(){
+
+  const campuses = this.props.campuses;
 
   return (
   <div>
@@ -24,10 +52,14 @@ export default function Campuses (props) {
                   <small>{ campus.content }</small>
                 </div>
               </Link>
+
+              <button type="button" className="btn btn-danger" key={campus.id} onClick={(e)=> this.handleDelete(e, campus.id)}>Delete</button>
+
             </div>
           ))
         }
       </div>
     </div>
   )
+  }
 }

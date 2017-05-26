@@ -1,7 +1,8 @@
 const express = require('express');
-const routes = new express.Router();
+const routes = express.Router();
 const Campus = require('../models').Campus;
-
+const Student = require('../models').Student;
+const blue = require('chalk').blue;
 
 routes.get('/', (req, res, next) => {
 
@@ -40,10 +41,35 @@ routes.put('/:id', (req, res, next) => {
   .catch(next);
 })
 
+// Create a new Campus
+routes.post('/', (req, res, next) => {
+  console.log(blue("res", res, "req", req.body));
+	Campus.create(req.body)
+	.then(campusSavedOnDb => {
+    // console.log(blue("New campus", campusSavedOnDb.name ,"saved to the Database at", new Date()));
+    // res.sendStatus(201);
+    res.json(campusSavedOnDb);
+  })
+})
+
 //delete
-routes.post('/')
+// Delete Campus
+routes.delete('/:id', (req, res, next ) => {
+	Campus.destroy({where: { id: req.params.id } })
+  .then(()=>res.sendStatus(204))
+	.catch(next)
+})
 
 
+// Students from specific campus
+// Axios path will be api/campuses/students/:id
+routes.get('/students/:id', (req, res, next ) => {
+	return Student.findAll({
+		where: {campusId: req.params.id}
+	})
+	.then(students => res.send(students))
+	.catch(next)
+})
 
 
 

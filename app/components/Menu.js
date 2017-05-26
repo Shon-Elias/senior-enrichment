@@ -15,6 +15,8 @@ const Menu = (props) => {
       <ul className="nav navbar-nav">
         <li ><Link to='/campuses' className="navbar-brand-nav">Campuses</Link></li>
         <li><Link to='/students' className="navbar-brand-nav">Students</Link></li>
+        <li><Link to='/createProfileForStudent' className="navbar-brand-nav">Add Student</Link></li>
+        <li><Link to='/createProfileForCampus' className="navbar-brand-nav">Add Campus</Link></li>
       </ul>
       <ul className="nav navbar-nav navbar-right">
         <form className="navbar-form navbar-left" role="search">

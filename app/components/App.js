@@ -1,5 +1,6 @@
 import React from 'react';  // , {Component}
 import MenuContainer from '../containers/MenuContainer';
+// import JoinUs
 
 export default function App ({ children }) {
 
@@ -16,11 +17,7 @@ export default function App ({ children }) {
         <img src="mybd.jpg" />
         }
       </div>
-      <div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </div>
+
     </div>
   );
 }

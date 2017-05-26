@@ -17,10 +17,14 @@ import {receiveStudents, getStudentById} from './action-creators/students';
 import App from './components/App';
 import Campuses from './components/Campuses';
 
+
 // Containers
 import CampusesContainer from './containers/CampusesContainer';
 import CampusContainer from './containers/CampusContainer';
 import StudentsContainer from './containers/StudentsContainer';
+import StudentContainer from './containers/StudentContainer';
+import AddCampusContainer from './containers/AddCampusContainer';
+import AddStudentContainer from './containers/AddStudentContainer';
 // import Students from './components/Students'
 
 const onAppEnter = function () {
@@ -42,7 +46,7 @@ const onAppEnter = function () {
 
 const onCampusEnter = function (nextRouterState) {
 
-  console.log("Iam your next state", nextRouterState)
+  console.log("I am your next state", nextRouterState)
 
   const campusId = nextRouterState.params.id;
   store.dispatch(getCampusById(campusId));
@@ -50,11 +54,23 @@ const onCampusEnter = function (nextRouterState) {
 
 const onStudentEnter = function (nextRouterState) {
 
-  console.log("Iam your next state", nextRouterState)
+  console.log("I am your next state", nextRouterState)
 
   const studentId = nextRouterState.params.id;
   store.dispatch(getStudentById(studentId));
 };
+
+const addCampus = campus => {
+  return dispatch => {
+    axios.post('/api/createProfile', campus)
+    // .then(savedCampus = {
+    //   alert('profile save suc')
+    // })
+
+
+    //DONT FORGET TO CLEAN THE FORM
+  }
+}
 
 // call store
 render (
@@ -65,7 +81,9 @@ render (
         <Route path="campuses" component={CampusesContainer} />
         <Route path="campuses/:id" component={CampusContainer} onEnter={onCampusEnter} />
         <Route path="students" component={StudentsContainer} />
-        <Route path="students/:id" component={StudentsContainer} onEnter={onStudentEnter} />
+        <Route path="students/:id" component={StudentContainer} onEnter={onStudentEnter} />
+        <Route path="/createProfileForCampus" component={AddCampusContainer} />
+        <Route path="/createProfileForStudent" component={AddStudentContainer} />
       </Route>
     </Router>
   </Provider>,

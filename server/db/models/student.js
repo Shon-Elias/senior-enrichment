@@ -22,13 +22,7 @@ const Student = db.define('student', {
       isEmail: true
     }
   }
-// },
-// {
-// 		hooks: {
-//       beforeCreate: function(student){
-//         student.img = './images/'+ student.name.toLowerCase() + '.jpg'
-//       }
-//     }
+
 });
 
 module.exports = Student;

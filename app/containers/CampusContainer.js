@@ -6,7 +6,7 @@ import Campus from '../components/Campus';
 
  const mapStateToProps = (state, ownProps)=>{
 
-      console.log("CampusContainer   STATE============>",  state);
+   console.log("CampusContainer   STATE ========>",  state);
 
    console.log("CampusContainer   ============>",  ownProps);
 

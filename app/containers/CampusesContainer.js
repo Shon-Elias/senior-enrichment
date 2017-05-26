@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import React from 'react';  //, {Component}
 import store from '../store';
 import Campuses from '../components/Campuses';
+import { deleteCampusById } from '../action-creators/campuses';
+
 // import {receiveCampuses, getCampusById} from '../action-creators/campuses';
 
 
@@ -16,13 +18,18 @@ const mapStateToProps = (state, ownProps) =>{
 
   }
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   // console.log(" on props", ownProps)
-//   // return ownProps.campuses
-//   // return dispatch(receiveCampuses(ownProps.campuses));
-// }
+const mapDispatchToProps = (dispatch, ownProps) =>{
+   return {
+    deleteCampusById (campusId) {
+      dispatch(deleteCampusById(campusId));
+      // hashHistory.push(`/students`)
+
+    }
+  };
+}
+
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Campuses);
-export default connect(mapStateToProps)(Campuses);
+export default connect(mapStateToProps, mapDispatchToProps)(Campuses);
 
 
