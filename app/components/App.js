@@ -23,23 +23,3 @@ export default function App ({ children }) {
 }
 
 
-
-// <div className="col-md-6">
-//        <img  src = "" align="middle"/>
-              // <Link className="thumbnail" to={`/campuse/${album.id}`}>
-
-
-
-// <h3>Campuses</h3>
-//       <div className="row">
-//             <div className="col-xs-6" >
-//                 <img src="mybd.jpg"/>
-//                 <div className="caption">
-//                   <h5>
-//                     <span>span</span>
-//                   </h5>
-//                   <small>App component</small>
-//                 </div>
-
-//             </div>
-//       </div>

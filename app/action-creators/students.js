@@ -58,21 +58,9 @@ export const addNewStudent = myNewStudent => {
         hashHistory.push(`/students/${newStudent.id}`)
 
       })
-      // .catch(console.log(error));
   };
 
 };
 
 
 
-
-
-
-
-
-
-      // .then(playlist => {
-      //   const newListOfPlaylists = getState().playlists.list.concat([playlist]);
-      //   dispatch(receivePlaylists(newListOfPlaylists));
-      //   hashHistory.push(`/playlists/${playlist.id}`)
-      // });
